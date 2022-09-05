@@ -34,7 +34,7 @@ public class ex29 {
 			if (a < b) {
 				System.out.println("Ordem Decrescente: \n1. " + b + "\n2. " + a + "\n3. " + c);
 			}else {
-				System.out.println("Ordem Crescente: \n1. " + a + "\n2. " + b + "\n3. " + c);
+				System.out.println("Ordem Decrescente: \n1. " + a + "\n2. " + b + "\n3. " + c);
 			}
 		}
 
