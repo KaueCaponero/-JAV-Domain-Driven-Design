@@ -9,10 +9,12 @@ public class ex27 {
 		
 		double a, result;
 		
-		System.out.println("Digite um valor para verificar se é par ou ímpar: ");
+		System.out.println("Digite um valor: ");
 		a = ler.nextDouble();
 		
-		if ( (a % 2) == 0) {
+		if ( (a == 0)) {
+			System.out.println("O valor digitado é nulo (0).");
+		}else if ( (a % 2) == 0) {
 			result = a + 5;
 			System.out.println("O valor digitado é par, portando (" + a + ") + 5 = " + result);
 		}else {
