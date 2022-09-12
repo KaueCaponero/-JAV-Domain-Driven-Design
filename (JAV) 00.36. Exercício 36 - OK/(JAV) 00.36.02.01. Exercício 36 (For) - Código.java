@@ -7,32 +7,32 @@ public class ex36f {
 	public static void main(String[] args) {
 		Scanner ler = new Scanner(System.in);
 		
-		int x, a, b, i, tab;
+		int a, b, c, i, tab;
 		
 		System.out.println("Digite um valor positivo para calcularmos a tabuada: ");
-		x = ler.nextInt();
+		a = ler.nextInt();
 		
-		while (x <= 0) {
-			System.out.println("Valor invï¿½lido.");
+		while (a <= 0) {
+			System.out.println("Valor inválido.");
 			System.out.println("Digite um valor positivo para calcularmos a tabuada: ");
-			x = ler.nextInt();
+			a = ler.nextInt();
 		}
 		
 		System.out.println("Digite o valor inicial do intervalo da tabuada: ");
-		a = ler.nextInt();
-		
-		System.out.println("Digite o valor final do intervalo da tabuada: ");
 		b = ler.nextInt();
 		
-		while (b <=a) {
-			System.out.println("O valor final do intervalo da tabuada (" + b + ") deve ser maior do que o valor inicial (" + a + ").");
+		System.out.println("Digite o valor final do intervalo da tabuada: ");
+		c = ler.nextInt();
+		
+		while (c <=b ) {
+			System.out.println("O valor final do intervalo da tabuada (" + c + ") deve ser maior do que o valor inicial (" + b + ").");
 			System.out.println("Digite o valor final do intervalo da tabuada: ");
-			b = ler.nextInt();
+			c = ler.nextInt();
 		}
 		
-		i = b;
+		i = c;
 		
-		for (i=b; i >= a; i=i-1) {
+		for (i=c; i >= b; i=i-1) {
 			tab = a * i;
 			System.out.println(tab);
 		}
