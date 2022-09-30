@@ -7,7 +7,7 @@ public class ex53f {
 	public static void main(String[] args) {
 		Scanner ler = new Scanner(System.in);
 
-		ex53_Aluno[] ListaAlunos = new ex53_Aluno[2];		
+		ex53_Aluno[] ListaAlunos = new ex53_Aluno[5];		
 
 		int i, indice, j, indicej;
 
@@ -16,7 +16,7 @@ public class ex53f {
 
 		indice = i + 1;
 
-		for (i = 0; i < 2; i++) {
+		for (i = 0; i < 5; i++) {
 			ex53_Aluno a = new ex53_Aluno();
 
 			indicej = 1;
@@ -53,7 +53,7 @@ public class ex53f {
 
 		System.out.println("Os alunos do período da noite são: \n");
 
-		for (i = 0; i < 2; i++) {
+		for (i = 0; i < 5; i++) {
 			if (ListaAlunos[i].periodo.toUpperCase().equals("NOITE")) {
 				System.out.println("RA: " + ListaAlunos[i].ra);
 				System.out.println("NOME: " + ListaAlunos[i].nome);
