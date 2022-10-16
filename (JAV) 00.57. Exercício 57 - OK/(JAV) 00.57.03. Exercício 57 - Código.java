@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import exercicios.ex58.Categoria;
+
 public class ex57 {
 
 	public static void main(String[] args) throws IOException {
@@ -65,7 +67,13 @@ public class ex57 {
 						ArrayList<ex57_ContaBancaria> listaContaBancaria = new ArrayList<>();
 						ex57_ContaBancaria b = new ex57_ContaBancaria();
 						
-						b.setId(listaCliente.size() + 1);
+						if (listaCliente.size() == 0) {
+							b.setId(1);
+						}
+						
+						else {
+							b.setId(listaCliente.get(listaCliente.size() - 1).getId() + 1);
+						}
 						
 						System.out.println("\nDigite a sua agência bancária: ");
 						b.setAgencia(ler.next());
@@ -76,6 +84,7 @@ public class ex57 {
 						System.out.println("Digite seu saldo: ");
 						b.setSaldo(ler.nextDouble());
 						
+						a.setConta(b);						
 						listaContaBancaria.add(b);
 					}
 					
@@ -89,11 +98,13 @@ public class ex57 {
 					
 				}
 				
-				if (opcao == 2) {
+				else if (opcao == 2) {
+					
+					System.out.println("Lista de clientes cadastrados: \n");
 					
 					for(ex57_Cliente a: listaCliente) {
 						
-						System.out.println(a.exibirDadosCliente());					
+						System.out.println(a.exibirDadosCliente() + "\n");					
 						
 						if (a.getConta() == null) {
 							System.out.println("Cliente não possui conta bancária cadastrada.");
@@ -121,50 +132,57 @@ public class ex57 {
 						confirmacao = ler.next().toUpperCase();
 					}
 					
-					if (confirmacao.toUpperCase().equals("S")) {
-						listaCliente.remove(id-1);
+					if (confirmacao.equals("S")) {
+						System.out.println("Digite o novo nome do cliente: ");
+						a.setNome(ler.next());
+						
+						System.out.println("Digite a nova idade do cliente: ");
+						a.setIdade(ler.nextInt());
+						
+						System.out.println("Digite o novo email do cliente: ");
+						a.setEmail(ler.next());
+						
+						System.out.println("O cliente possui conta bancária? (S ou N)");
+						respconta = ler.next().toUpperCase();
+						
+						while (!respconta.equals("S") && !respconta.equals("N")) {
+							System.out.println("\nResposta Inválida \n");
+							System.out.println("O cliente possui conta bancária? (S ou N)");
+							respconta = ler.next().toUpperCase();
+						}
+						
+						if (respconta.equals("S")) {
+							
+							ex57_ContaBancaria b = a.getConta();
+							
+							System.out.println("\nDigite a sua agência bancária: ");
+							b.setAgencia(ler.next());
+							
+							System.out.println("Digite a sua conta bancária: ");
+							b.setNumero(ler.next());
+							
+							System.out.println("Digite seu saldo: ");
+							b.setSaldo(ler.nextDouble());
+							
+						}
+						
+						else {
+							iniciar = "S";
+							System.in.read();
+							continue;						
+						}
+						
 					}
 					
 					else {
 						iniciar = "S";
 						continue;
 					}
-					
-					System.out.println("Digite o novo nome do cliente: ");
-					a.setNome(ler.next());
-					
-					System.out.println("Digite a nova idade do cliente: ");
-					a.setIdade(ler.nextInt());
-					
-					System.out.println("Digite o novo email do cliente: ");
-					a.setEmail(ler.next());
-					
-					System.out.println("O cliente possui conta bancária? (S ou N)");
-					respconta = ler.next().toUpperCase();
-					
-					while (!respconta.equals("S") && !respconta.equals("N")) {
-						System.out.println("\nResposta Inválida \n");
-						System.out.println("O cliente possui conta bancária? (S ou N)");
-						respconta = ler.next().toUpperCase();
-					}
-					
-					if (respconta.equals("S")) {
-						
-						ex57_ContaBancaria b = getId(id-1);
-						
-						System.out.println("\nDigite a sua agência bancária: ");
-						b.SetAgencia(ler.next());
-						
-						System.out.println("Digite a sua conta bancária: ");
-						b.SetNumero(ler.next());
-						
-						System.out.println("Digite seu saldo: ");
-						b.setSaldo(ler.nextDouble());
-						
-					}					
 				}
 				
-				if (opcao == 3) {
+				else if (opcao == 3) {
+					
+					System.out.println("Lista de clientes cadastrados: \n");
 					
 					for(ex57_Cliente a: listaCliente) {
 						
@@ -201,6 +219,7 @@ public class ex57 {
 					
 					else {
 						iniciar = "S";
+						System.in.read();
 						continue;
 					}
 					
@@ -208,7 +227,9 @@ public class ex57 {
 					System.in.read();
 				}
 				
-				if (opcao == 4) {
+				else if (opcao == 4) {
+					
+					System.out.println("Lista de clientes cadastrados: \n");
 					
 					for(ex57_Cliente a: listaCliente) {
 						
